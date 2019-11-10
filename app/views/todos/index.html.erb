@@ -15,7 +15,7 @@
     <% end %>
 
 <button type="button" id="btnshow">+</button>
-<div class="MyForm">
+<div class="MyForm" style="display: none">
   <%= form_with scope: :todo, url: todos_path do |form| %>
     <p>
       <%= form.label :"Новая задача" %><br>

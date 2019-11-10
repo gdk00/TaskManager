@@ -1,0 +1,39 @@
+<h1>Задачи</h1>
+  <body>
+
+    <% @Projects.each do |project| %>
+    <h2><%= project.title %></h2>
+      <% project.todos.each do |todo| %>
+        <ul>
+          <tr>
+            <li>
+              <td><%= todo.text %></td>
+            </li>
+          </tr>
+        </ul>
+      <% end %>
+    <% end %>
+
+<button type="button" id="btnshow">+</button>
+<div class="MyForm">
+  <%= form_with scope: :todo, url: todos_path do |form| %>
+    <p>
+      <%= form.label :"Новая задача" %><br>
+      <%= form.text_field :text %>
+    </p>
+
+    <p><select name="ProjectID">
+      <% @Projects.each do |project| %>
+      <option value="<%=project.id%>"><%=project.title%></option>
+      <% end %>
+    </select></p>
+    <p>
+
+    <p>
+      <button type="button" id="btnhide">ОТМЕНА</button>
+      <%= form.submit '', :class => "hidden", :id => 'form_submit_button' %>
+      <%=content_tag(:a, 'OK', :name => 'submit', :id => 'submit_link')%>
+    </p>
+      <% end %>
+</div>
+</body>

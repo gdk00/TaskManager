@@ -14,3 +14,17 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+$(document).ready(function() {
+    $(document).on("click","#submit_link",function() {
+        $('#form_submit_button').click();
+    });
+});
+  $(document).ready(function() {
+          $("#btnshow").click(function(){
+            $("div").show();
+          })
+
+          $("#btnhide").click(function(){
+            $("div").hide();
+          })
+  });

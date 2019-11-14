@@ -12,19 +12,40 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
 //= require_tree .
-$(document).ready(function() {
-    $(document).on("click","#submit_link",function() {
-        $('#form_submit_button').click();
-    });
-});
-  $(document).ready(function() {
-          $("#btnshow").click(function(){
-            $("div").show();
-          })
+//= require select2
 
-          $("#btnhide").click(function(){
-            $("div").hide();
-          })
+$(document).ready(function() {
+$('input').on('ifChanged', function(){
+  var id = $(this).attr('id');
+  var s_id = '#submit' + id;
+  $(s_id).click();
+  $(s_id).val(id);
+  $(s_id).attr('name','todoID');
+  })
+})
+$(document).ready(function() {
+  $("#btnshow").click(function() {
+    $("#cn").show();
+    $(".row").css("pointer-events", "none");
+  })
+  $("#btnhide").click(function() {
+    $("#cn").hide();
+    $(".row").css("pointer-events", "auto");
+  })
+
+  $("#textInput").click(function() {
+    $('#textInput').val("");
+    $("#textInput").css("color", "black");
+  })
+  $('input').iCheck({
+    checkboxClass: 'icheckbox_square-blue',
+    radioClass: 'iradio_square-blue',
+    increaseArea: '20%'
   });
+  $("#e1").select2();
+  $('select').select2({
+    minimumResultsForSearch: -1,
+    width: '100%',
+  });
+});

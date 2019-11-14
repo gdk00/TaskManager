@@ -7,7 +7,10 @@ Rails.application.config.assets.version = '1.0'
 # Rails.application.config.assets.paths << Emoji.images_path
 # Add Yarn node_modules folder to the asset load path.
 Rails.application.config.assets.paths << Rails.root.join('node_modules')
-
+Rails.application.config.assets.precompile += %w( square/blue.css.scss )
+Rails.application.config.assets.precompile += %w( bootstrap/bootstrap-grid.css )
+Rails.application.config.assets.precompile += %w( select2/core.scss)
+Rails.application.config.assets.precompile << /\.(?:svg|eot|woff|ttf)$/
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in the app/assets
 # folder are already added.

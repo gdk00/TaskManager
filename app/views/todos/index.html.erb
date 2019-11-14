@@ -1,39 +1,61 @@
-<h1>Задачи</h1>
-  <body>
+<head>
+  <%= stylesheet_link_tag "bootstrap/bootstrap-grid" %>
+  <%= stylesheet_link_tag "square/blue" %>
+  <%= stylesheet_link_tag "select2/core" %>
+</head>
+<body>
+  <div class="title">
+    <label>Задачи</label>
+    <button type="button" id="btnshow">+</button>
+  </div>
 
-    <% @Projects.each do |project| %>
-    <h2><%= project.title %></h2>
+  <div id="cn" style="display: none">
+    <div id="MyForm">
+      <%= form_with scope: :todo, url: todos_path do |form| %>
+      <h6 class="formTodo separator">
+        <%= form.label :"НОВАЯ ЗАДАЧА", :id => "textLabel" %>
+      </h6>
+      <p class="formTodo">
+        <%= form.text_field :text, :value => "Название задачи...", :class =>"todoElement", :id => "textInput" %>
+      </p>
+      <select id="e1" name="ProjectID">
+        <option selected="selected" disabled="disabled" hidden="hidden">Категория</option>
+        <% @Projects.each do |project| %>
+          <option value="<%=project.id%>"><%=project.title%></option>
+        <% end %>
+      </select>
+      <button type="button" class="todoElement" ,="," id="btnhide">ОТМЕНА</button>
+      <%= form.submit '', :class => "hidden", :id => 'form_submit_button' %>
+      <%=content_tag(:button, 'OK', :name => 'submit', :class =>"todoElement", :id => 'submit_link')%>
+    <% end %>
+  </div>
+</div>
+
+<div class="row">
+  <% @Projects.each do |project| %>
+    <div class="col-1 col-sm-1 col-md-2 col-lg-3 col-xl-3 projectCard">
+      <label class="projectLabel"><%= project.title %></label>
+      <div class="separator"></div>
       <% project.todos.each do |todo| %>
-        <ul>
+        <ul class="list">
           <tr>
             <li>
-              <td><%= todo.text %></td>
-            </li>
-          </tr>
-        </ul>
-      <% end %>
+              <div class="check">
+                <%= form_with scope: :todo, url: todos_update_path do |form1| %>
+                <%= form1.submit '', data: { disable_with: false }, :class => "hidden", :id => "submit"+(todo.id).to_s %>
+                <input name="todoID" ,="," value="<%=todo.id%>" id="<%=todo.id%>" type="checkbox">
+                <label for="<%= todo.id %>" class="todosText" for"<%= todo.id %>">
+                  <%= todo.text %>
+                  <%= todo.isCompleted %>
+                </label>
+              <%end%>
+            </div>
+          </li>
+        </tr>
+      </ul>
     <% end %>
-
-<button type="button" id="btnshow">+</button>
-<div class="MyForm" style="display: none">
-  <%= form_with scope: :todo, url: todos_path do |form| %>
-    <p>
-      <%= form.label :"Новая задача" %><br>
-      <%= form.text_field :text %>
-    </p>
-
-    <p><select name="ProjectID">
-      <% @Projects.each do |project| %>
-      <option value="<%=project.id%>"><%=project.title%></option>
-      <% end %>
-    </select></p>
-    <p>
-
-    <p>
-      <button type="button" id="btnhide">ОТМЕНА</button>
-      <%= form.submit '', :class => "hidden", :id => 'form_submit_button' %>
-      <%=content_tag(:a, 'OK', :name => 'submit', :id => 'submit_link')%>
-    </p>
-      <% end %>
+  </div>
+<% end %>
 </div>
+
 </body>

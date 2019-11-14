@@ -1,0 +1,150 @@
+@font-face {
+    font-family: 'OpenSans';
+    src: font-url('OpenSans-Regular.ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+html, body {
+  font-family: 'OpenSans';
+}
+.list{
+  list-style: none;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.todosText{
+  padding: 5px;
+  font-weight: normal !important;
+  display: inline;
+}
+.title {
+    display: block;
+    font-family: 'OpenSans';
+    background-color: rgb(55,177,219);
+    position: static;
+    text-align: center;
+    color: white;
+    height: 70px;
+    label {
+      transform: translate(0%, 50%);
+      position: relative;
+      font-size: 25px;
+     }
+     #btnshow{
+       float: right;
+       background: none;
+       color: white;
+       border: none;
+       outline: none;
+       display: inline-block;
+       font-size: 40px;
+     }
+}
+.projectCard{
+  -webkit-box-shadow: 1px 1px 2px 0px rgba(0,0,0,0.5);
+-moz-box-shadow: 1px 1px 2px 0px rgba(0,0,0,0.5);
+box-shadow: 1px 1px 2px 0px rgba(0,0,0,0.5);
+  height: auto;
+  margin: 1em;
+  overflow: auto;
+  vertical-align: top;
+  .projectLabel{
+     font-size: 14px;
+     margin-top: 15px;
+  }
+}
+.separator{
+    border-bottom: 1px solid #dedede;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+}
+#cn {
+    position: fixed;
+    top: 50%; left: 50%;
+    transform: translate(-50%,-50%);
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);;
+    z-index: 999;
+}
+#MyForm {
+    position: fixed;
+    top: 50%; left: 50%;
+    transform: translate(-50%,-50%);
+    background: white;
+    width: 35%;
+    height: auto;
+    z-index: 999;
+    padding: 5px;
+}
+.todoElement{
+  height: 40px;
+}
+.buttonTodo{
+  position: relative;
+  width: 48%;
+  background-color: white;
+  color: black;
+  justify-content: center;
+  align-items: center;
+}
+#btnhide{
+  width: 49%;
+  float: left;
+  margin-top: 5px;
+  background: gray;
+  color: white;
+  border: none;
+  outline: none;
+}
+
+#submit_link{
+  width: 49%;
+  float: right;
+  margin-top: 5px;
+  color: white;
+  border: none;
+  outline: none;
+  background-color: rgb(55,177,219);
+}
+#textInput{
+       max-width:100%;
+       width: 100%;
+       min-width: 100%;
+       border: 1px solid #cbcbcb;
+       position: relative;
+       min-width: 100px;
+       margin: 0 auto;
+       color: gray;
+}
+.formTodo{
+  text-align: center;
+  width: 100%;
+}
+.select2-selection, .select2-selection__rendered, .select2-selection__arrow {
+   height: 40px !important;
+   span {
+       line-height: 40px !important;
+       text-align: left;
+   }
+}
+.select2-selection {
+   border-radius: 0 !important;
+}
+
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ *= require select2
+ */

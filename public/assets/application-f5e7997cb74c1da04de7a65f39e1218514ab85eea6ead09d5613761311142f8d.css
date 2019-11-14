@@ -1,3 +1,31 @@
+@font-face {
+  font-family: 'OpenSans';
+  src:url('OpenSans-Semibold.ttf') format('Semibold'),
+    url('OpenSans-Light.ttf') format('Light'),
+    url('OpenSans-Regular.ttf') format('Regular');
+  font-weight: normal;
+  font-style: normal;
+}
+
+#Title {
+    display: block;
+    background-color:blue;
+    position: relative;
+    text-align: center;
+    color: white;
+}
+#ProjectCard{
+  -webkit-box-shadow: 1px 1px 2px 0px rgba(0,0,0,0.5);
+-moz-box-shadow: 1px 1px 2px 0px rgba(0,0,0,0.5);
+box-shadow: 1px 1px 2px 0px rgba(0,0,0,0.5);
+  display: inline-block;
+  width: 200px;
+  height: auto;
+  margin: 1em;
+  overflow: auto;
+  vertical-align: top;
+}
+*= require_tree . 
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
